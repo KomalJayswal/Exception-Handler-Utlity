@@ -19,7 +19,7 @@ import java.util.UUID;
  * Class representing an API error in order to provide details of exceptions thrown back to the client
  */
 @Data
-@JsonRootName("apiError")
+//@JsonRootName("apiError")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ErrorResponse extends DefaultErrorAttributes {
 
@@ -32,22 +32,11 @@ public class ErrorResponse extends DefaultErrorAttributes {
     private static final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
 
     public ErrorResponse(HttpMethod method, String requestUri, int statusCode, Throwable ex) {
-        this();
         this.method = method;
         this.requestUri = requestUri;
         this.statusCode = statusCode;
         timestamp = dateFormatter.format(LocalDateTime.now(ZoneOffset.UTC));
-        this.errors = "Validation Error, currently we are putting all validations under 400, later will be modified as per new design";
-    }
-
-    public void setSubErrors(List<ApiSubError> subErrors) {
-        if (subErrors != null) {
-            this.subErrors = new ArrayList<>(subErrors);
-        }
-    }
-
-    public String getId() {
-        return id;
+        //this.errors = "Validation Error, currently we are putting all validations under 400, later will be modified as per new design";
     }
 
 }

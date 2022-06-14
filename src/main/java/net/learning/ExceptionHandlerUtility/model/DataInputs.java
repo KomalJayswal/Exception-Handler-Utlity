@@ -1,10 +1,11 @@
 package net.learning.ExceptionHandlerUtility.model;
 
 import lombok.Getter;
+import org.springframework.http.HttpStatus;
 
 @Getter
 public class DataInputs extends RuntimeException {
 
-    protected int httpStatus;
+    protected HttpStatus httpStatus;
     protected String errorMessage;
 }

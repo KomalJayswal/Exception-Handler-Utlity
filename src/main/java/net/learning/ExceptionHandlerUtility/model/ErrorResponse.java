@@ -21,7 +21,7 @@ import java.util.UUID;
  */
 @Data
 //@JsonRootName("apiError")
-public class ErrorResponse extends DefaultErrorAttributes {
+public class ErrorResponse {
 
     private HttpMethod method;
     private String requestUri;

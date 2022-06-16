@@ -81,7 +81,9 @@ Import this as a maven jar dependency in your applications ( _where you want to 
 
 https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
 
-![alt text](https://raw.githubusercontent.com/KomalJayswal/Exception-Handler-Utlity/master/image.webp)
+![alt text](https://github.com/KomalJayswal/Exception-Handler-Utlity/blob/master/exception-learning.uml)
+
+
 
 ## Hierarchy of Collections / Class Diagram
 Serializable -> Throwable -> Exception -> RuntimeException

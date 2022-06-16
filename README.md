@@ -16,6 +16,10 @@ To catch and provide specific treatment to a subset of existing Java exceptions.
 * **New HTTP Status Series** : We can extend the HTTP status after 4XX and 5XX series 
 
 
+## Pre-Requistics
+
+Please install Java8 and maven in your system.
+
 ## Run Locally
 
 Clone the project
@@ -36,8 +40,47 @@ Go to the project directory
 cd <project-folder-name>
 ```
 
+Build the Project
 
+```bash
+mvn clean install
+```
+**_You can now see the repository build in your .m2 folder_**
 
+## Installation
+
+Import this as a maven jar dependency in your applications ( _where you want to use the custom exception handler_ )
+```bash
+<dependency>
+    <groupId>net.apmoller.crb.ohm.microservices</groupId>
+    <artifactId>ohm-exception-handler-utility</artifactId>
+    <version>1.0.0</version>
+ </dependency>
+
+```
+## Error Response Structure
+
+```bash
+{
+    "method": "POST",
+    "requestUri": "/imports/vessel-voyage/documents",
+    "statusCode": "BAD_REQUEST",
+    "timestamp": "2022-06-16T09:24:15",
+    "errors": [
+        {
+            "errorMessage": "customized error"
+        }
+    ]
+}
+```
+
+## Exception Handler Framework
+
+https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
+
+![alt text](http://url/to/img.png)
+
+[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
 
 
 ## Types of Exception
@@ -49,13 +92,8 @@ Java exceptions can be checked and unchecked. In the next sections, we'll cover 
 ### Unchecked Exception
 
 
-## Installation
 
-Import this as a maven jar dependency in your applications
 
-## Exception Handler Framework
-
-https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
 
 ### Bad Request Exception
 

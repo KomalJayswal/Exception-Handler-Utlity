@@ -9,11 +9,14 @@ However, we sometimes need to supplement these standard exceptions with our own
 
 These are the main reasons for introducing custom exceptions :
 
-* **Flexibility** : to Customize the Error Response Structure of all the Exsisting Standard Exceptions.
-* **Business logic exceptions** : exceptions that are specific to the business logic and workflow. These help the application users or the developers understand what the exact problem is.
+- **Flexibility** : to Customize the Error Response Structure of all the Exsisting Standard Exceptions.
+
+- **Business logic exceptions** : exceptions that are specific to the business logic and workflow. These help the application users or the developers understand what the exact problem is.
 To catch and provide specific treatment to a subset of existing Java exceptions.
-* **Handles unchecked Exceptions** : For all the unknown exceptions, we can generalize them
-* **New HTTP Status Series** : We can extend the HTTP status after 4XX and 5XX series 
+ 
+- **Handles unchecked Exceptions** : For all the unknown exceptions, we can generalize them
+
+- **New HTTP Status Series** : We can extend the HTTP status after 4XX and 5XX series 
 
 
 ## Pre-Requistics
@@ -68,7 +71,7 @@ Import this as a maven jar dependency in your applications ( _where you want to 
     "timestamp": "2022-06-16T09:24:15",
     "errors": [
         {
-            "errorMessage": "customized error"
+            "errorMessage": "<customized error>"
         }
     ]
 }
@@ -78,9 +81,13 @@ Import this as a maven jar dependency in your applications ( _where you want to 
 
 https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
 
-![alt text](http://url/to/img.png)
+![alt text](https://raw.githubusercontent.com/KomalJayswal/Exception-Handler-Utlity/master/image.webp)
 
-[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
+## Hierarchy of Collections / Class Diagram
+Serializable -> Throwable -> Exception -> RuntimeException
+
+## Testing
+The GlobalExceptionHandlerTest contains covers all the exception scenarios. Please run the test class to test different exception handling scenarios
 
 
 ## Types of Exception
@@ -121,14 +128,6 @@ Similarly, we can create ...
 For creating your own custom exception, please extend BaseOhmException
 and throw your custom exception with a matching constructor
 
-## Hierarchy of Collections
-Serializable -> Throwable -> Exception -> RuntimeException
-
-## Testing
-The GlobalExceptionHandlerTest contains covers all the exception scenarios. Please run the test class to test different exception handling scenarios
-
-## Build
-*mvn clean install*
 
 
 

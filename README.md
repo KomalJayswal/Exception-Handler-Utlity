@@ -20,7 +20,7 @@ To catch and provide specific treatment to a subset of existing Java exceptions.
 
 ## Versions
 
-[1.0.0](https://github.com/KomalJayswal/Exception-Handler-Utlity)
+[1.0.0](https://github.com/KomalJayswal/Exception-Handler-Utlity/tree/version_1.0.0)
 
 ## Pre-Requistics
 
@@ -79,61 +79,3 @@ Import this as a maven jar dependency in your applications ( _where you want to 
     ]
 }
 ```
-
-## Exception Handler Framework
-
-https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
-
-![alt text](https://github.com/KomalJayswal/Exception-Handler-Utlity/blob/master/exception-learning.uml)
-
-
-
-## UML Class Diagram
-Serializable -> Throwable -> Exception -> RuntimeException
-
-## Testing
-The GlobalExceptionHandlerTest contains covers all the exception scenarios. Please run the test class to test different exception handling scenarios
-
-
-## Types of Exception
-
-Java exceptions can be checked and unchecked. In the next sections, we'll cover both of these cases.
-
-### Checked Exception
-
-### Unchecked Exception
-
-
-
-
-
-### Bad Request Exception
-
-The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the 
-request without modifications.
-
-### Forbidden Exception
-
-The server understood the request, but is refusing to fulfill it. Authorization will not help and the request
-SHOULD NOT be repeated. If the request method was not HEAD and the server wishes to make public why the
-request has not been fulfilled, it SHOULD describe the reason for the refusal in the entity. If the server
-does not wish to make this information available to the client, the status code 404 (Not Found) can be used
-instead.
-
-### Data Not Found Exception
-
-The server has not found anything matching the Request-URI. No indication is given of whether the condition is
-temporary or permanent. This status code is commonly used when the server does not wish to reveal exactly why the request has been refused, or when no other response is applicable.
-
-### Internal Server Exception
-
-Similarly, we can create ...
-
-### Bad Request Exception
-For creating your own custom exception, please extend BaseOhmException
-and throw your custom exception with a matching constructor
-
-
-
-
-

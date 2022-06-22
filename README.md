@@ -1,8 +1,15 @@
 # Exception Handler Utility : 1.0.0
 
+This version contains a basic generic handler for handling the standard custom exceptions.
+
+## Advantages
+
+## Disadvantages
+
 ## Installation
 
-Import this as a maven jar dependency in your applications ( _where you want to use the custom exception handler_ )
+Import this as a maven jar dependency in your applications 
+( _where you want to use the custom exception handler_ )
 ```bash
 <dependency>
     <groupId>net.apmoller.crb.ohm.microservices</groupId>

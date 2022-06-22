@@ -14,7 +14,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ErrorResponse> handleOhmValidationException(CustomException customException,
                                                                       ServletWebRequest servletWebRequest) {
                 ErrorResponse apiError = new ErrorResponse(servletWebRequest.getHttpMethod(), servletWebRequest.getRequest().getRequestURI(),
-                        customException.getHttpStatus(), customException);
+                        customException.getHttpStatus());
 
         return ResponseEntity
                 .status(customException.getHttpStatus())

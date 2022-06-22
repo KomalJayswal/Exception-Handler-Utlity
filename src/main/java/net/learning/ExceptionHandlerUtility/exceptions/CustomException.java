@@ -8,7 +8,6 @@ import org.springframework.http.HttpStatus;
 public class CustomException extends DataInputs {
 
     public CustomException(HttpStatus httpStatus, String errorMessage) {
-        super();
         this.httpStatus = httpStatus;
         this.errorMessage = errorMessage;
     }

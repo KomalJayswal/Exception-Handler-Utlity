@@ -1,4 +1,4 @@
-# Exception Handler Utility : 1.0.0
+# Exception Handler Utility 
 
 This is a utility tool which can be used in other services for **handling the user-defined or custom exceptions for both checked and unchecked exceptions**
 
@@ -18,6 +18,9 @@ To catch and provide specific treatment to a subset of existing Java exceptions.
 
 - **New HTTP Status Series** : We can extend the HTTP status after 4XX and 5XX series 
 
+## Versions
+
+[1.0.0](https://github.com/KomalJayswal/Exception-Handler-Utlity)
 
 ## Pre-Requistics
 
@@ -85,7 +88,7 @@ https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
 
 
 
-## Hierarchy of Collections / Class Diagram
+## UML Class Diagram
 Serializable -> Throwable -> Exception -> RuntimeException
 
 ## Testing

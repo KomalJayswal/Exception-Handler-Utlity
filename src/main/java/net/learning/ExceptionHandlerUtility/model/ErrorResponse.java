@@ -35,7 +35,7 @@ public class ErrorResponse {
 
     }
 
-    public ErrorResponse(HttpMethod method, String requestUri, HttpStatus statusCode, Throwable ex) {
+    public ErrorResponse(HttpMethod method, String requestUri, HttpStatus statusCode) {
         this();
         this.method = method;
         this.requestUri = requestUri;

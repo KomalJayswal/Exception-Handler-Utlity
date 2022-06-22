@@ -55,27 +55,12 @@ mvn clean install
 
 ## Installation
 
-Import this as a maven jar dependency in your applications ( _where you want to use the custom exception handler_ )
+Import this as a maven jar dependency in your applications 
+(_where you want to use the custom exception handler_ )
 ```bash
 <dependency>
     <groupId>net.apmoller.crb.ohm.microservices</groupId>
     <artifactId>ohm-exception-handler-utility</artifactId>
-    <version>1.0.0</version>
+    <version><_latestVersion_></version>
  </dependency>
-
-```
-## Error Response Structure
-
-```bash
-{
-    "method": "POST",
-    "requestUri": "/imports/vessel-voyage/documents",
-    "statusCode": "BAD_REQUEST",
-    "timestamp": "2022-06-16T09:24:15",
-    "errors": [
-        {
-            "errorMessage": "<customized error>"
-        }
-    ]
-}
 ```

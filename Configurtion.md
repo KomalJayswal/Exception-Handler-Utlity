@@ -53,6 +53,11 @@ This plugin has two goals (which are already bound to specific phases of the def
             <artifactId>maven-compiler-plugin</artifactId>
         </plugin>
 
+##Spring Factories
+
+
+
+
 
 
 

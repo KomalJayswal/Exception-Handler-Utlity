@@ -1,57 +1,4 @@
-# Exception Handler Utility 
-
-This is a utility tool which can be used in other services for **handling the user-defined or custom exceptions for both checked and unchecked exceptions**
-
-## The Need for Custom Exceptions
-
-Inbuilt Exceptions Handling Mechanism in Java covers almost all general exceptions that are bound to happen in programming.
-However, we sometimes need to supplement these standard exceptions with our own
-
-These are the main reasons for introducing custom exceptions :
-
-- **Flexibility** : to Customize the Error Response Structure of all the Exsisting Standard Exceptions.
-
-- **Business logic exceptions** : exceptions that are specific to the business logic and workflow. These help the application users or the developers understand what the exact problem is.
-To catch and provide specific treatment to a subset of existing Java exceptions.
- 
-- **Handles unchecked Exceptions** : For all the unknown exceptions, we can generalize them
-
-- **New HTTP Status Series** : We can extend the HTTP status after 4XX and 5XX series 
-
-## Versions
-
-[1.0.0](https://github.com/KomalJayswal/Exception-Handler-Utlity)
-
-## Pre-Requistics
-
-Please install Java8 and maven in your system.
-
-## Run Locally
-
-Clone the project
-
-```bash
-git clone https://github.com/KomalJayswal/Exception-Handler-Utlity.git
-```
-
-Checkout to the branch version to be used
-
-```bash
- git checkout <branchname> 
-```
-
-Go to the project directory
-
-```bash
-cd <project-folder-name>
-```
-
-Build the Project
-
-```bash
-mvn clean install
-```
-**_You can now see the repository build in your .m2 folder_**
+# Exception Handler Utility : 1.0.0
 
 ## Installation
 
@@ -82,20 +29,16 @@ Import this as a maven jar dependency in your applications ( _where you want to 
 
 ## Exception Handler Framework
 
-https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
+[![](https://mermaid.ink/img/pako:eNqVVk2T2jAM_SuenNlDr-lMZyjQXTrdPQCdXrg4iSAeHDu1FVi67H-v8rH5Ig4sJ6K89yRLspQ3L9QReL63NzyN2Wa-VYx-v4RF3_eX6nsmZLRUCGbHQ2APD9_YBV4RVGQvbKalhBCFViWreb7NXZKZBxII-czNAUwN3FZqazRC7Ruln_zIZ5JbWyjNdJJyp0LDL8ExN2v4m4EK74GvwQguxb9c_SOaFdhUKwsLhQLPrqieEFMnoj4YmKME_APBKo-pnemuWp2tilHBp0ihBhmCdeiVZJGkEhJQSNl-4SiO0CA6xCvZm_GwaWDR8NAVkfO1U7kd7BBrsGT9U93uun4GPsMdOcxV764yaoIEFq8hpN374MhojSz59xM3sdGnslFzYv14T6bbfe7KcdUpm-lqQxCL3OR-c6nLjEvJQp2AZahZzFUkwVxmmUWd1AeoBB6lDrisrU8luIxoBZgZZRkYow2jzslCMgALeHjIlUPyQ8KLl3krgnZ0fZe56rDDQTyp_rZg5rATCpp0FSqAlA0CcKU08taoG3CZX_5nwFhHRACVJW5oXb45R75UaYb1dGgsI5oNyBF810u_HdvJG07UmCyNQpxphSYf92YaHUUxVfspGin5gLdPsK_m3U1Gd3jfDi9vxA9OO1fV5Wy_HktUXrw1HSqzVfGGBAok1RM2VKEf2iS8arnr9THM7e7qm_DCYkcC4QPVuAaW69L11tG2Lfho4xYnGWyLklu1geNutjCPd2DGjmw7Zy1fhHmYFDZrFsVOSOkzKfYx7g2A-nqF7G2WklBgJ6GWNPb8UywQ-sTeSK54EVlvcwez24o0kBk4Au3jc-ioryZ5FeMMUupTH1bcgRKgDVf7K516v3z4pRUwYQOepVCHNZ4lsAh2PJNYMpRWMKENog_wcBIRxv6X9LUy-AGtxrw03sRLgO6ZiOi79y3X23oY007cej79rQS33la9EzRLI7qci0igNp6_49LCxOMZ6vVZhbWhRM0Fp-_opLK-_wdMsP0G)](https://mermaid.live/edit#pako:eNqVVk2T2jAM_SuenNlDr-lMZyjQXTrdPQCdXrg4iSAeHDu1FVi67H-v8rH5Ig4sJ6K89yRLspQ3L9QReL63NzyN2Wa-VYx-v4RF3_eX6nsmZLRUCGbHQ2APD9_YBV4RVGQvbKalhBCFViWreb7NXZKZBxII-czNAUwN3FZqazRC7Ruln_zIZ5JbWyjNdJJyp0LDL8ExN2v4m4EK74GvwQguxb9c_SOaFdhUKwsLhQLPrqieEFMnoj4YmKME_APBKo-pnemuWp2tilHBp0ihBhmCdeiVZJGkEhJQSNl-4SiO0CA6xCvZm_GwaWDR8NAVkfO1U7kd7BBrsGT9U93uun4GPsMdOcxV764yaoIEFq8hpN374MhojSz59xM3sdGnslFzYv14T6bbfe7KcdUpm-lqQxCL3OR-c6nLjEvJQp2AZahZzFUkwVxmmUWd1AeoBB6lDrisrU8luIxoBZgZZRkYow2jzslCMgALeHjIlUPyQ8KLl3krgnZ0fZe56rDDQTyp_rZg5rATCpp0FSqAlA0CcKU08taoG3CZX_5nwFhHRACVJW5oXb45R75UaYb1dGgsI5oNyBF810u_HdvJG07UmCyNQpxphSYf92YaHUUxVfspGin5gLdPsK_m3U1Gd3jfDi9vxA9OO1fV5Wy_HktUXrw1HSqzVfGGBAok1RM2VKEf2iS8arnr9THM7e7qm_DCYkcC4QPVuAaW69L11tG2Lfho4xYnGWyLklu1geNutjCPd2DGjmw7Zy1fhHmYFDZrFsVOSOkzKfYx7g2A-nqF7G2WklBgJ6GWNPb8UywQ-sTeSK54EVlvcwez24o0kBk4Au3jc-ioryZ5FeMMUupTH1bcgRKgDVf7K516v3z4pRUwYQOepVCHNZ4lsAh2PJNYMpRWMKENog_wcBIRxv6X9LUy-AGtxrw03sRLgO6ZiOi79y3X23oY007cej79rQS33la9EzRLI7qci0igNp6_49LCxOMZ6vVZhbWhRM0Fp-_opLK-_wdMsP0G)
 
-![alt text](https://github.com/KomalJayswal/Exception-Handler-Utlity/blob/master/exception-learning.uml)
+## Configuration Details
 
-
-
-## UML Class Diagram
-Serializable -> Throwable -> Exception -> RuntimeException
-
+[Here](https://github.com/KomalJayswal/Exception-Handler-Utlity/blob/version_1.0.0/Configurtion.md)
+is the configuration details well documented along with the brief explaination
 ## Testing
 The GlobalExceptionHandlerTest contains covers all the exception scenarios. Please run the test class to test different exception handling scenarios
 
-
-## Types of Exception
+## Exception --> yet to update
 
 Java exceptions can be checked and unchecked. In the next sections, we'll cover both of these cases.
 
@@ -103,13 +46,9 @@ Java exceptions can be checked and unchecked. In the next sections, we'll cover 
 
 ### Unchecked Exception
 
-
-
-
-
 ### Bad Request Exception
 
-The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the 
+The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the
 request without modifications.
 
 ### Forbidden Exception

@@ -27,12 +27,94 @@ Header contains the HTTP Status : 400
 
 1. Please install Java 11 and maven in your system.
 
-2.
+2. Create a input request model as a child class of `RuntimeException`.
+```java
+@Getter
+public class DataInputs extends RuntimeException {
 
-3. Now, execute Maven clean install command to create the JAR
+    protected HttpStatus httpStatus;
+    protected String errorMessage;
+} 
 ```
-mvn clean install
+3. Create an Exception class as a child class of `DataInputs` and super child class of `RuntimeException`.
+```java
+@Getter
+public class CustomException extends DataInputs {
+    public CustomException(HttpStatus httpStatus, String errorMessage) {
+        this.httpStatus = httpStatus;
+        this.errorMessage = errorMessage;
+    }
+}
 ```
+<I>Or you can also merge the `DataInputs` and `CustomException` class into one comman class. </I>
+
+4. Create `GlobalExceptionHandler` class which contains the Handler method for `CustomException`.
+```java
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+
+  @ExceptionHandler(CustomException.class)
+  public ResponseEntity<ErrorResponse> handleOhmValidationException(CustomException customException,
+                                                                    ServletWebRequest servletWebRequest) {
+    ErrorResponse apiError = new ErrorResponse(servletWebRequest.getHttpMethod(), servletWebRequest.getRequest().getRequestURI(),
+            customException.getHttpStatus());
+
+    return ResponseEntity
+            .status(customException.getHttpStatus())
+            .body(apiError);
+  }
+} 
+```
+5. Create `Errors` Model contains the error message.
+```java
+@Getter
+@Builder
+@Setter
+@Data
+public class Errors {
+
+    protected String errorMessage;
+}
+```
+
+6. Create `ErrorResponse` Model that contains 
+* fields of the error response structure
+* DateTimeFormatter to fetch the current data-time
+* parameterize constructors to set each value of the fields
+```java
+@Data
+public class ErrorResponse {
+
+  private HttpMethod method;
+  private String requestUri;
+  private HttpStatus statusCode;
+  private String timestamp;
+  private List<Errors> errors;
+
+  private static final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
+
+  public ErrorResponse(){
+
+  }
+
+  public ErrorResponse(HttpMethod method, String requestUri, HttpStatus statusCode) {
+    this();
+    this.method = method;
+    this.requestUri = requestUri;
+    this.statusCode = statusCode;
+    timestamp = dateFormatter.format(LocalDateTime.now(ZoneOffset.UTC));
+    this.errors = buildErrors();
+  }
+
+  public List<Errors> buildErrors(){
+    return List.of(Errors.builder().errorMessage("customized error").build());
+  }
+} 
+```
+
+
+6. Now, execute `mvn clean install` command to create the JAR
+
 4. Once, build is done, you can now see the repository JAR is created in your .m2 folder
 
 **Congratulation! Exception Handler JAR is successfully created.** 

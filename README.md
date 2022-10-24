@@ -26,47 +26,44 @@ Header contains the HTTP Status : 400
 
 
 1. Please install Java 11 and maven in your system.
+2. Create a springboot project using https://start.spring.io. <br>
+* Select `Maven Project` 
+* Add Dependency : `lombok and spring-web` 
+* Group : `net.learning`
+* Artifact : `ExceptionHandlerUtility`
 
-2. Create a input request model as a child class of `RuntimeException`.
+
+3. Create a input request model as a child class of `RuntimeException`.
 ```java
+import lombok.Getter;
+import org.springframework.http.HttpStatus;
+
 @Getter
 public class DataInputs extends RuntimeException {
 
-    protected HttpStatus httpStatus;
-    protected String errorMessage;
+  protected HttpStatus httpStatus;
+  protected String errorMessage;
 } 
 ```
-3. Create an Exception class as a child class of `DataInputs` and super child class of `RuntimeException`.
+4. Create an Exception class as a child class of `DataInputs` and super child class of `RuntimeException`.
 ```java
+import lombok.Getter;
+import org.springframework.http.HttpStatus;
+
 @Getter
 public class CustomException extends DataInputs {
-    public CustomException(HttpStatus httpStatus, String errorMessage) {
-        this.httpStatus = httpStatus;
-        this.errorMessage = errorMessage;
-    }
+  public CustomException(HttpStatus httpStatus, String errorMessage) {
+    this.httpStatus = httpStatus;
+    this.errorMessage = errorMessage;
+  }
 }
 ```
 <I>Or you can also merge the `DataInputs` and `CustomException` class into one comman class. </I>
 
-4. Create `GlobalExceptionHandler` class which contains the Handler method for `CustomException`.
-```java
-@RestControllerAdvice
-public class GlobalExceptionHandler {
-
-  @ExceptionHandler(CustomException.class)
-  public ResponseEntity<ErrorResponse> handleOhmValidationException(CustomException customException,
-                                                                    ServletWebRequest servletWebRequest) {
-    ErrorResponse apiError = new ErrorResponse(servletWebRequest.getHttpMethod(), servletWebRequest.getRequest().getRequestURI(),
-            customException.getHttpStatus());
-
-    return ResponseEntity
-            .status(customException.getHttpStatus())
-            .body(apiError);
-  }
-} 
-```
 5. Create `Errors` Model contains the error message.
 ```java
+import lombok.*;
+
 @Getter
 @Builder
 @Setter
@@ -82,6 +79,18 @@ public class Errors {
 * DateTimeFormatter to fetch the current data-time
 * parameterize constructors to set each value of the fields
 ```java
+
+import lombok.Data;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
+
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+/**
+ * Class representing an API error in order to provide details of exceptions thrown back to the client
+ */
 @Data
 public class ErrorResponse {
 
@@ -109,13 +118,30 @@ public class ErrorResponse {
   public List<Errors> buildErrors(){
     return List.of(Errors.builder().errorMessage("customized error").build());
   }
+}
+```
+
+7. Create `GlobalExceptionHandler` class which contains the Handler method for `CustomException`.
+```java
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+
+  @ExceptionHandler(CustomException.class)
+  public ResponseEntity<ErrorResponse> handleOhmValidationException(CustomException customException,
+                                                                    ServletWebRequest servletWebRequest) {
+    ErrorResponse apiError = new ErrorResponse(servletWebRequest.getHttpMethod(), servletWebRequest.getRequest().getRequestURI(),
+            customException.getHttpStatus());
+
+    return ResponseEntity
+            .status(customException.getHttpStatus())
+            .body(apiError);
+  }
 } 
 ```
 
+8. Now, execute `mvn clean install` command to create the JAR
 
-6. Now, execute `mvn clean install` command to create the JAR
-
-4. Once, build is done, you can now see the repository JAR is created in your .m2 folder
+9. Once, build is done, you can now see the repository JAR is created in your .m2 folder
 
 **Congratulation! Exception Handler JAR is successfully created.** 
 

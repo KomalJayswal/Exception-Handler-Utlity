@@ -1,4 +1,6 @@
-# Exception Handler Utility : 1.0.0
+# Exception Handler Utility : 2.0.0
+
+TODO : Read me file update 
 
 This version contains a basic generic handler for handling the standard custom exceptions.
 

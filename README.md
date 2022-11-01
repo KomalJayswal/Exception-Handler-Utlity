@@ -254,12 +254,68 @@ This plugin has two goals (which are already bound to specific phases of the def
 ```
 </details>
 
-### Spring Factories
+<details>
+    <summary><I>What is Runtime Exception ?</I></summary>
 
 
+</details>
+
+<details>
+    <summary><I>What is HttpStatus ?</I></summary>
 
 
+</details>
+
+<details>
+    <summary><I>What is HttpMethod ?</I></summary>
 
 
+</details>
+
+<details>
+    <summary><I>What is DateTimeFormatter ?</I></summary>
 
 
+</details>
+
+<details>
+    <summary><I>Explain `private static final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");` ?</I></summary>
+
+
+</details>
+
+<details>
+    <summary><I>Explain `timestamp = dateFormatter.format(LocalDateTime.now(ZoneOffset.UTC));` ?</I></summary>
+
+
+</details>
+
+<details>
+    <summary><I>Explain @RestControllerAdvice ?</I></summary>
+
+
+</details>
+
+<details>
+    <summary><I>Explain @ExceptionHandler ?</I></summary>
+
+
+</details>
+
+<details>
+    <summary><I>What is ResponseEntity ?</I></summary>
+
+
+</details>
+
+<details>
+    <summary><I>What is ServletWebRequest ?</I></summary>
+
+
+</details>
+
+<details>
+    <summary><I>What is the need of Spring Factories ?</I></summary>
+
+
+</details>

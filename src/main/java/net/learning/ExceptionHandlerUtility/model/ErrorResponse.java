@@ -35,16 +35,19 @@ public class ErrorResponse {
 
     }
 
-    public ErrorResponse(HttpMethod method, String requestUri, HttpStatus statusCode) {
+    public ErrorResponse(HttpMethod method, String requestUri, HttpStatus statusCode, String errors) {
         this();
         this.method = method;
         this.requestUri = requestUri;
         this.statusCode = statusCode;
         timestamp = dateFormatter.format(LocalDateTime.now(ZoneOffset.UTC));
-        this.errors = buildErrors();
+        this.errors = buildErrors(errors);
     }
 
-    public List<Errors> buildErrors(){
-        return List.of(Errors.builder().errorMessage("customized error").build());
+    public List<Errors> buildErrors(String errors){
+        if(null == errors){
+            return List.of(Errors.builder().errorMessage("customized error").build());
+        }
+        return List.of(Errors.builder().errorMessage(errors).build());
     }
 }

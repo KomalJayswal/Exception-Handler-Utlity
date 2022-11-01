@@ -279,25 +279,25 @@ This plugin has two goals (which are already bound to specific phases of the def
 </details>
 
 <details>
-    <summary><I>Explain `private static final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");` ?</I></summary>
+    <summary><I>Explain : <b> private static final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss"); </b> ?</I></summary>
 
 
 </details>
 
 <details>
-    <summary><I>Explain `timestamp = dateFormatter.format(LocalDateTime.now(ZoneOffset.UTC));` ?</I></summary>
+    <summary><I>Explain : <b> timestamp = dateFormatter.format(LocalDateTime.now(ZoneOffset.UTC)); </b> ?</I></summary>
 
 
 </details>
 
 <details>
-    <summary><I>Explain @RestControllerAdvice ?</I></summary>
+    <summary><I>What is @RestControllerAdvice ?</I></summary>
 
 
 </details>
 
 <details>
-    <summary><I>Explain @ExceptionHandler ?</I></summary>
+    <summary><I>What is @ExceptionHandler ?</I></summary>
 
 
 </details>

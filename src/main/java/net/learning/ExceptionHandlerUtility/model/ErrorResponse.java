@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+
 /**
  * Class representing an API error in order to provide details of exceptions thrown back to the client
  */
@@ -22,7 +23,7 @@ public class ErrorResponse {
 
     private static final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
 
-    public ErrorResponse(){
+    public ErrorResponse() {
 
     }
 
@@ -35,7 +36,16 @@ public class ErrorResponse {
         this.errors = buildErrors();
     }
 
-    public List<Errors> buildErrors(){
+    public ErrorResponse(HttpMethod method, String requestUri, HttpStatus statusCode, String errorMessage) {
+        this();
+        this.method = method;
+        this.requestUri = requestUri;
+        this.statusCode = statusCode;
+        timestamp = dateFormatter.format(LocalDateTime.now(ZoneOffset.UTC));
+        this.errors = List.of(Errors.builder().errorMessage(errorMessage).build());
+    }
+
+    public List<Errors> buildErrors() {
         return List.of(Errors.builder().errorMessage("customized error").build());
     }
 }
